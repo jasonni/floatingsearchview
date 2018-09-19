@@ -172,6 +172,7 @@ public class FloatingSearchView extends FrameLayout {
     private boolean mMenuOpen = false;
     private MenuView mMenuView;
     private int mMenuId = -1;
+    private int mSearchIconId = -1;
     private int mActionMenuItemColor;
     private int mOverflowIconColor;
     private OnMenuItemClickListener mActionMenuItemListener;
@@ -374,8 +375,6 @@ public class FloatingSearchView extends FrameLayout {
         mSearchInputParent = findViewById(R.id.search_input_parent);
         mLeftAction = (ImageView) findViewById(R.id.left_action);
         mSearchProgress = (ProgressBar) findViewById(R.id.search_bar_search_progress);
-        initDrawables();
-        mClearButton.setImageDrawable(mIconClear);
         mMenuView = (MenuView) findViewById(R.id.menu_view);
 
         mDivider = findViewById(R.id.divider);
@@ -385,13 +384,6 @@ public class FloatingSearchView extends FrameLayout {
         mSuggestionsList = (RecyclerView) findViewById(R.id.suggestions_list);
 
         setupViews(attrs);
-    }
-
-    private void initDrawables() {
-        mMenuBtnDrawable = new DrawerArrowDrawable(getContext());
-        mIconClear = Util.getWrappedDrawable(getContext(), R.drawable.ic_clear_black_24dp);
-        mIconBackArrow = Util.getWrappedDrawable(getContext(), R.drawable.ic_arrow_back_black_24dp);
-        mIconSearch = Util.getWrappedDrawable(getContext(), R.drawable.ic_search_black_24dp);
     }
 
     @Override
@@ -444,6 +436,7 @@ public class FloatingSearchView extends FrameLayout {
         if (attrs != null) {
             applyXmlAttributes(attrs);
         }
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             setBackground(mBackgroundDrawable);
@@ -514,12 +507,22 @@ public class FloatingSearchView extends FrameLayout {
             if (a.hasValue(R.styleable.FloatingSearchView_floatingSearch_menu)) {
                 mMenuId = a.getResourceId(R.styleable.FloatingSearchView_floatingSearch_menu, -1);
             }
+            if (a.hasValue(R.styleable.FloatingSearchView_floatingSearch_searchIcon)) {
+                mSearchIconId = a.getResourceId(R.styleable.FloatingSearchView_floatingSearch_searchIcon, -1);
+            }
             setDimBackground(a.getBoolean(R.styleable.FloatingSearchView_floatingSearch_dimBackground,
                     ATTRS_SHOW_DIM_BACKGROUND_DEFAULT));
             setShowMoveUpSuggestion(a.getBoolean(R.styleable.FloatingSearchView_floatingSearch_showMoveSuggestionUp,
                     ATTRS_SHOW_MOVE_UP_SUGGESTION_DEFAULT));
             this.mSuggestionSectionAnimDuration = a.getInt(R.styleable.FloatingSearchView_floatingSearch_suggestionsListAnimDuration,
                     ATTRS_SUGGESTION_ANIM_DURATION_DEFAULT);
+
+            mMenuBtnDrawable = new DrawerArrowDrawable(getContext());
+            mIconClear = Util.getWrappedDrawable(getContext(), R.drawable.ic_clear_black_24dp);
+            mIconBackArrow = Util.getWrappedDrawable(getContext(), R.drawable.ic_arrow_back_black_24dp);
+            mIconSearch = Util.getWrappedDrawable(getContext(), mSearchIconId == -1 ? R.drawable.ic_search_black_24dp : mSearchIconId);
+            mClearButton.setImageDrawable(mIconClear);
+
             setBackgroundColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_backgroundColor
                     , Util.getColor(getContext(), R.color.background)));
             setLeftActionIconColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_leftActionColor
