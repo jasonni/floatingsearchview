@@ -41,7 +41,6 @@
         android:alpha="1"
         android:background="@drawable/oval_btn_selector"
         android:padding="@dimen/square_button_padding"
-        android:rotation="45"
         android:src="@drawable/ic_arrow_back_black_24dp"
         android:visibility="visible"
         android:layout_marginRight="@dimen/search_bar_right_icon_right_margin" />
