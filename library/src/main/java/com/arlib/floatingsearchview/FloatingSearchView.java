@@ -191,7 +191,7 @@ public class FloatingSearchView extends FrameLayout {
     private View mSuggestionListContainer;
     private RecyclerView mSuggestionsList;
     private int mSuggestionTextColor = -1;
-    private int mSuggestionRightIconColor;
+    //private int mSuggestionRightIconColor;
     private SearchSuggestionsAdapter mSuggestionsAdapter;
     private SearchSuggestionsAdapter.OnBindSuggestionCallback mOnBindSuggestionCallback;
     private int mSuggestionsTextSizePx;
@@ -547,8 +547,8 @@ public class FloatingSearchView extends FrameLayout {
                     , viewTextColor));
             setHintTextColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_hintTextColor
                     , Util.getColor(getContext(), R.color.hint_color)));
-            setSuggestionRightIconColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_suggestionRightIconColor
-                    , Util.getColor(getContext(), R.color.gray_active_icon)));
+            //setSuggestionRightIconColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_suggestionRightIconColor
+            //        , -1));
         } finally {
             a.recycle();
         }
@@ -915,12 +915,12 @@ public class FloatingSearchView extends FrameLayout {
      *
      * @param color
      */
-    public void setSuggestionRightIconColor(int color) {
-        this.mSuggestionRightIconColor = color;
-        if (mSuggestionsAdapter != null) {
-            mSuggestionsAdapter.setRightIconColor(this.mSuggestionRightIconColor);
-        }
-    }
+    //public void setSuggestionRightIconColor(int color) {
+    //    this.mSuggestionRightIconColor = color;
+    //    if (mSuggestionsAdapter != null) {
+    //        mSuggestionsAdapter.setRightIconColor(this.mSuggestionRightIconColor);
+    //    }
+    //}
 
     /**
      * Set the text size of the suggestion items.
@@ -1317,7 +1317,7 @@ public class FloatingSearchView extends FrameLayout {
                 });
         refreshShowMoveUpSuggestion();
         mSuggestionsAdapter.setTextColor(this.mSuggestionTextColor);
-        mSuggestionsAdapter.setRightIconColor(this.mSuggestionRightIconColor);
+        //mSuggestionsAdapter.setRightIconColor(this.mSuggestionRightIconColor);
 
         mSuggestionsList.setAdapter(mSuggestionsAdapter);
 
@@ -1869,7 +1869,7 @@ public class FloatingSearchView extends FrameLayout {
         setMenuItemIconColor(savedState.menuItemIconColor);
         setLeftActionIconColor(savedState.leftIconColor);
         setClearBtnColor(savedState.clearBtnColor);
-        setSuggestionRightIconColor(savedState.suggestionUpBtnColor);
+        //setSuggestionRightIconColor(savedState.suggestionUpBtnColor);
         setDividerColor(savedState.dividerColor);
         setLeftActionMode(savedState.leftActionMode);
         setDimBackground(savedState.dimBackground);

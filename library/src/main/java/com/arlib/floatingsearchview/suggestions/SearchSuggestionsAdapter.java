@@ -49,7 +49,7 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
     private boolean mShowRightMoveUpBtn = false;
     private int mBodyTextSizePx;
     private int mTextColor = -1;
-    private int mRightIconColor = -1;
+    //private int mRightIconColor = -1;
 
     public interface OnBindSuggestionCallback {
 
@@ -188,9 +188,9 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
             viewHolder.body.setTextColor(mTextColor);
         }
 
-        if(mRightIconColor != -1){
-            Util.setIconColor(viewHolder.rightIcon, mRightIconColor);
-        }
+        //if(mRightIconColor != -1){
+        //    Util.setIconColor(viewHolder.rightIcon, mRightIconColor);
+        //}
 
         if (mOnBindSuggestionCallback != null) {
             mOnBindSuggestionCallback.onBindSuggestion(viewHolder.itemView, viewHolder.leftIcon, viewHolder.body,
@@ -215,17 +215,17 @@ public class SearchSuggestionsAdapter extends RecyclerView.Adapter<RecyclerView.
         }
     }
 
-    public void setRightIconColor(int color) {
-
-        boolean notify = false;
-        if (this.mRightIconColor != color) {
-            notify = true;
-        }
-        this.mRightIconColor = color;
-        if (notify) {
-            notifyDataSetChanged();
-        }
-    }
+    //public void setRightIconColor(int color) {
+    //
+    //    boolean notify = false;
+    //    if (this.mRightIconColor != color) {
+    //        notify = true;
+    //    }
+    //    this.mRightIconColor = color;
+    //    if (notify) {
+    //        notifyDataSetChanged();
+    //    }
+    //}
 
     public void setShowMoveUpIcon(boolean show) {
 
