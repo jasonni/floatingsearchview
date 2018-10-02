@@ -523,7 +523,7 @@ public class FloatingSearchView extends FrameLayout {
             mMenuBtnDrawable = new DrawerArrowDrawable(getContext());
             mIconClear = Util.getWrappedDrawable(getContext(), R.drawable.ic_clear_black_24dp);
             mIconBackArrow = Util.getWrappedDrawable(getContext(), R.drawable.ic_arrow_back_black_24dp);
-            mIconSearch = Util.getWrappedDrawable(getContext(), mSearchIconId == -1 ? R.drawable.ic_search_black_24dp : mSearchIconId);
+            mIconSearch = Util.getWrappedDrawable(getContext(), mSearchIconId == -1 ? R.drawable.ic_search_black_24dp : mSearchIconId).mutate();
             mClearButton.setImageDrawable(mIconClear);
 
             setBackgroundColor(a.getColor(R.styleable.FloatingSearchView_floatingSearch_backgroundColor
