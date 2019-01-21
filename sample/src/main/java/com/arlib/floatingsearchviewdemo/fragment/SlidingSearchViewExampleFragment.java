@@ -6,10 +6,13 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,6 +33,7 @@ import com.arlib.floatingsearchviewdemo.data.DataHelper;
 
 import java.util.List;
 
+import static android.view.View.GONE;
 
 public class SlidingSearchViewExampleFragment extends BaseExampleFragment {
     private final String TAG = "BlankFragment";
@@ -247,6 +251,12 @@ public class SlidingSearchViewExampleFragment extends BaseExampleFragment {
                         .replaceFirst(mSearchView.getQuery(),
                                 "<font color=\"" + textLight + "\">" + mSearchView.getQuery() + "</font>");
                 textView.setText(Html.fromHtml(text));
+
+                Drawable mRightIconDrawable =
+                    Util.getWrappedDrawable(getContext(), R.drawable.ic_message_remove);
+                //DrawableCompat.setTint(mRightIconDrawable, Util.getColor(getContext(), android.R.color.white));
+                rightIcon.setImageDrawable(mRightIconDrawable);
+                rightIcon.setOnClickListener(null);
             }
 
         });
