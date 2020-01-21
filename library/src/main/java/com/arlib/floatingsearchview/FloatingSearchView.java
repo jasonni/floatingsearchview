@@ -46,6 +46,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -880,7 +881,7 @@ public class FloatingSearchView extends FrameLayout {
      */
     public void setQueryTextSize(int sizePx) {
         mQueryTextSize = sizePx;
-        mSearchInput.setTextSize(mQueryTextSize);
+        mSearchInput.setTextSize(TypedValue.COMPLEX_UNIT_PX, mQueryTextSize);
     }
 
     /**
