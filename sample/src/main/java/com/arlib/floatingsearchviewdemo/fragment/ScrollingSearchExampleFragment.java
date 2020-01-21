@@ -213,7 +213,7 @@ public class ScrollingSearchExampleFragment extends BaseExampleFragment implemen
         mSearchView.setOnBindSuggestionCallback(new SearchSuggestionsAdapter.OnBindSuggestionCallback() {
             @Override
             public void onBindSuggestion(View suggestionView, ImageView leftIcon,
-                                         TextView textView, SearchSuggestion item, int itemPosition) {
+                                         TextView textView, SearchSuggestion item, int itemPosition, ImageView rightIcon) {
                 ColorSuggestion colorSuggestion = (ColorSuggestion) item;
 
                 String textColor = mIsDarkSearchTheme ? "#ffffff" : "#000000";
